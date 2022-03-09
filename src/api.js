@@ -46,18 +46,20 @@ class JoblyApi {
   }
 
 
-  /** Get list of companies */
+  /** Get list of companies, optionally filtering by company name */
 
-  static async getCompanies(name = "") {
-    const res = await this.request("companies", { name });
+  static async getCompanies(filterName = undefined) {
+    const res = await this.request("companies", { name: filterName });
     return res.companies;
   }
 
 
-  /** Get list of jobs */
+  /** Get list of jobs, optionally filtering by job title */
 
-  static async getJobs(title = "") {
-    const res = await this.request("jobs", { title });
+  static async getJobs(filterTitle = "") {
+    const res = await this.request("jobs", { title: filterTitle });
     return res.jobs;
   }
 }
+
+export default JoblyApi;
