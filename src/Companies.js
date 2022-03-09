@@ -31,9 +31,12 @@ function Companies() {
   return (
     <div className="Companies">
       <SearchBar performSearch={fetchCompanies} />
+      <ul>
       {companies.map(company => {
-        return <Company company={company} />
+        return <li key = {company.handle}><Company company={company} /></li>
       })}
+      </ul>
+      
     </div>
   );
 }

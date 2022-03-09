@@ -56,7 +56,7 @@ class JoblyApi {
 
   /** Get list of jobs, optionally filtering by job title */
 
-  static async getJobs(filterTitle = "") {
+  static async getJobs(filterTitle = undefined) {
     const res = await this.request("jobs", { title: filterTitle });
     return res.jobs;
   }

@@ -1,13 +1,21 @@
 /** CompanyDetails, details about a company and list of their jobs
  * 
- * State:
- * - company: object of company
+ * Props:
+ *  - company: object of company
+ * 
+ * State: none
+ * 
  * 
  * Routes -> CompanyDetails
  */
 
 function CompanyDetails() {
-  return <div className="CompanyDetails">COMPANY DETAILS PAGE</div>;
+  return (
+    <div className="CompanyDetails">
+      <title></title>
+      COMPANY DETAILS PAGE
+    </div>
+  );
 }
 
 export default CompanyDetails;
