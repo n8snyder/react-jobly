@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import JoblyApi from "./api";
 import Company from "./Company"
+import SearchBar from "./SearchBar";
 
 /** Companies, list of companies with search bar
  * 
@@ -13,22 +14,28 @@ import Company from "./Company"
 function Companies() {
   const [companies, setCompanies] = useState(null);
 
+  async function fetchCompanies(formData) {
+    const searchTerm = formData?.search;
+    const newCompanies = await JoblyApi.getCompanies(searchTerm);
+    setCompanies(newCompanies);
+  }
+
   useEffect(function fetchCompaniesWhenMounted() {
-    async function fetchCompanies() {
-      const initialCompanies = await JoblyApi.getCompanies();
-      setCompanies(initialCompanies);
-    }
     fetchCompanies();
   }, []);
 
-  if(!companies){
-    return <p>Loading...</p>
+  if (!companies) {
+    return <p className="Companies">Loading...</p>
   }
 
-  return <div className="Companies">{companies.map(company => {
-    return <Company company ={company}/>
-
-  })}</div>;
+  return (
+    <div className="Companies">
+      <SearchBar performSearch={fetchCompanies} />
+      {companies.map(company => {
+        return <Company company={company} />
+      })}
+    </div>
+  );
 }
 
 export default Companies;
