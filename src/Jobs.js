@@ -33,12 +33,12 @@ function Jobs() {
     <div className="Jobs">
       <SearchBar performSearch={fetchJobs} />
       <ul>
-      {jobs.map(job => {
-        return <li key = {job.id}><Job job = {job}/></li>
-      })}
+        {jobs.map(job => {
+          return <li key={job.id}><Job job={job} /></li>
+        })}
 
       </ul>
-      
+
 
     </div>
   );

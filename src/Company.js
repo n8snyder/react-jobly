@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 /** Company: One company component
  * 
@@ -8,13 +9,13 @@
  * Companies -> Company
  */
 
-
 function Company({ company }) {
-    return (<div className="company">
-        <h1>{company.name}</h1>
-        <p>{company.description}</p>
-        {company.logoUrl && <img src={company.logoUrl} alt="companylogo" />}
-    </div>
+    return (
+        <Link className="company" exact to={`/companies/${company.handle}`}>
+            <h6>{company.name}</h6>
+            <p>{company.description}</p>
+            {company.logoUrl && <img src={company.logoUrl} alt="companylogo" />}
+        </Link>
     );
 }
 

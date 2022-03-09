@@ -8,14 +8,14 @@
  */
 
 
- function Job({ job }) {
+function Job({ job }) {
     return (
-    <div className="job">
-        <h6>{job.title}</h6>
-        <p>{job.companyName}</p>
-        <p>Equity: {job.equity}</p>
-        <p>Salary: {job.salary}</p>
-    </div>
+        <div className="job">
+            <h4>{job.title}</h4>
+            <p>{job.companyName}</p>
+            <p>Equity: {job.equity}</p>
+            <p>Salary: {job.salary}</p>
+        </div>
     );
 }
 
