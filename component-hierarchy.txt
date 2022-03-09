@@ -22,11 +22,6 @@ App                                                      General page wrapper
         state:
           formData: object of the form's values
 
-      CompaniesList                                      List of companies
-        props:
-          companies: array of companies
-        no state
-
         Company                                          A single company(name, description, logo)
           props:
             company: object of a company
@@ -36,6 +31,30 @@ App                                                      General page wrapper
       no props
       state: 
         company: object of company
+
+        Job                                              Description of one job
+          props:
+            job: object of a job
+
+
+
+    Jobs                                                 Top level Jobs component
+      no props
+      state:
+        jobs: array of jobs
+
+      SearchBar                                          Reuseable search bar
+        props: 
+          performSearch: function from parent component
+        state:
+          formData: object of the form's values
+
+      Job                                                 Description of one job
+        props:
+          job: object of a job
+
+
+
 
 
 
