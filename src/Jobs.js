@@ -8,7 +8,7 @@ import Job from "./Job";
  * State:
  * - jobs: array of jobs
  * 
- * Routes -> Jobs
+ * Routes -> Jobs -> {SearchBar, Job}
  */
 
 

@@ -1,0 +1,15 @@
+.SearchBar button {
+  background-color: rgb(95, 95, 230);
+  color: white;
+  padding: 10px;
+  border-radius: 10%;
+  font-size: large;
+  border:none;
+  cursor: pointer;
+}
+
+.SearchBar input {
+  line-height: 1.5;
+  font-size: 1.25rem;
+  padding: .5rem 1rem;
+}

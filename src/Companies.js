@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
  * State:
  * - companies: array of companies
  * 
- * Routes -> Companies
+ * Routes -> Companies -> {SearchBar, Company}
  */
 
 function Companies() {

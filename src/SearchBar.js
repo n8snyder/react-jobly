@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchBar.css";
 
 /** SearchBar, form that is used for searching for a term
  * 
