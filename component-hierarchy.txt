@@ -1,0 +1,35 @@
+App                                                      General page wrapper
+  no props or state
+
+  Nav
+    no props or state                                    Nav bar at the top of each page
+
+
+  Routes                                                 Routes for the app
+    no props or state
+
+    Jobly                                                Welcome page
+      no props or state 
+  
+    Companies                                            Top level companies component
+      no props
+
+      state:
+        companies: array of companies
+
+      SearchBar                                          Reuseable search bar
+        props: 
+          performSearch: function from parent component
+        state:
+          formData: object of the form's values
+
+      CompaniesList                                      List of companies
+        props:
+          companies: array of companies
+        
+        no state
+
+        Company                                          A single company
+          props:
+            company: object of a company
+      
