@@ -13,7 +13,6 @@ App                                                      General page wrapper
   
     Companies                                            Top level companies component
       no props
-
       state:
         companies: array of companies
 
@@ -26,10 +25,22 @@ App                                                      General page wrapper
       CompaniesList                                      List of companies
         props:
           companies: array of companies
-        
         no state
 
-        Company                                          A single company
+        Company                                          A single company(name, description, logo)
           props:
             company: object of a company
+
+
+    CompanyDetails                                       Description of one company with list of jobs
+      no props
+      state: 
+        company: object of company
+
+
+
+
+
+
+      
       
