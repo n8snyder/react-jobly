@@ -6,7 +6,11 @@
  * Routes -> Companies
  */
 
+import { useState } from "react";
+
 function Companies() {
+  const [companies, setCompanies] = useState(null);
+
   return <div className="Companies">COMPANIES PAGE</div>;
 }
 
