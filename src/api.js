@@ -49,6 +49,7 @@ class JoblyApi {
   /** Get list of companies, optionally filtering by company name */
 
   static async getCompanies(filterName = undefined) {
+    filterName = filterName === "" ? undefined : filterName;
     const res = await this.request("companies", { name: filterName });
     return res.companies;
   }
@@ -57,6 +58,7 @@ class JoblyApi {
   /** Get list of jobs, optionally filtering by job title */
 
   static async getJobs(filterTitle = undefined) {
+    filterTitle = filterTitle === "" ? undefined : filterTitle;
     const res = await this.request("jobs", { title: filterTitle });
     return res.jobs;
   }

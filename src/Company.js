@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 function Company({ company }) {
     return (
-        <Link className="company" exact to={`/companies/${company.handle}`}>
+        <Link className="company" to={`/companies/${company.handle}`}>
             <h6>{company.name}</h6>
             <p>{company.description}</p>
             {company.logoUrl && <img src={company.logoUrl} alt="companylogo" />}

@@ -4,12 +4,10 @@ import CompanyDetails from "./CompanyDetails";
 import Jobly from "./Jobly";
 import Jobs from "./Jobs";
 
-
 /** Routes
  * 
  * App -> Routes -> {Jobly, Companies, Jobs, CompanyDetails}
  */
-
 
 function Routes() {
   return (

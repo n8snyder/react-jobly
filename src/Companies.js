@@ -14,6 +14,7 @@ import SearchBar from "./SearchBar";
 function Companies() {
   const [companies, setCompanies] = useState(null);
 
+  // Get companies based on searching word user typed in
   async function fetchCompanies(formData) {
     const searchTerm = formData?.search;
     const newCompanies = await JoblyApi.getCompanies(searchTerm);
@@ -24,7 +25,7 @@ function Companies() {
     fetchCompanies();
   }, []);
 
-  if (!companies) {
+  if (companies === null) {
     return <p className="Companies">Loading...</p>
   }
 
@@ -32,11 +33,12 @@ function Companies() {
     <div className="Companies">
       <SearchBar performSearch={fetchCompanies} />
       <ul>
-      {companies.map(company => {
-        return <li key = {company.handle}><Company company={company} /></li>
-      })}
+        {companies.length === 0 && <h2>Sorry... No companies found</h2>}
+        {companies.map(company => {
+          return <li key={company.handle}><Company company={company} /></li>
+        })}
       </ul>
-      
+
     </div>
   );
 }

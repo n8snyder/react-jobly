@@ -15,6 +15,7 @@ import Job from "./Job";
 function Jobs() {
   const [jobs, setJobs] = useState(null);
 
+  // Get jobs based on searching word user typed in
   async function fetchJobs(formData) {
     const searchTerm = formData?.search;
     const newJobs = await JoblyApi.getJobs(searchTerm);
@@ -25,7 +26,7 @@ function Jobs() {
     fetchJobs();
   }, []);
 
-  if (!jobs) {
+  if (jobs === null) {
     return <p className="Jobs">Loading...</p>
   }
 
@@ -33,6 +34,7 @@ function Jobs() {
     <div className="Jobs">
       <SearchBar performSearch={fetchJobs} />
       <ul>
+        {jobs.length === 0 && <h2>Sorry... No jobs found</h2>}
         {jobs.map(job => {
           return <li key={job.id}><Job job={job} /></li>
         })}
