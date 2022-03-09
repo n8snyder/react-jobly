@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import JoblyApi from "./api";
+import Company from "./Company"
 
 /** Companies, list of companies with search bar
  * 
@@ -20,7 +21,14 @@ function Companies() {
     fetchCompanies();
   }, []);
 
-  return <div className="Companies">COMPANIES PAGE</div>;
+  if(!companies){
+    return <p>Loading...</p>
+  }
+
+  return <div className="Companies">{companies.map(company => {
+    return <Company company ={company}/>
+
+  })}</div>;
 }
 
 export default Companies;

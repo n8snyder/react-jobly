@@ -22,9 +22,9 @@ App                                                      General page wrapper
         state:
           formData: object of the form's values
 
-        Company                                          A single company(name, description, logo)
-          props:
-            company: object of a company
+      Company                                          A single company(name, description, logo)
+        props:
+          company: object of a company
 
 
     CompanyDetails                                       Description of one company with list of jobs
