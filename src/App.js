@@ -11,10 +11,12 @@ import NavBar from './NavBar';
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes />
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <NavBar />
+        <Routes />
+      </BrowserRouter>
+    </div>
   );
 }
 
