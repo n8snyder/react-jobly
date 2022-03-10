@@ -2,15 +2,20 @@ App                                                        General page wrapper
   no props
   state:
     user: object of a user
+    token: string of token obtained from backend api
 
   UserContext.Provider                                     Context with data on logged in user
 
     Nav                                                    Nav bar at the top of each page
-      no props or state
+      no state
+      props:
+        logOutUser: function for logging out
 
 
     Routes                                                 Routes for the app
-      no props or state
+      no state
+      props:
+        signUpUser, loginUser, updateUser: functions for the forms
 
       Jobly                                                Welcome page
         no props or state 
@@ -23,7 +28,7 @@ App                                                        General page wrapper
 
       SignUpForm                                           Form for creating a new account
         props:
-          signUser: function to sign up new user
+          signUpUser: function to sign up new user
         state:
           formData: object of form field values
 
