@@ -1,0 +1,6 @@
+.Companies {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}

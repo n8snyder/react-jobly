@@ -16,7 +16,7 @@
   border: 1px solid rgb(0, 0, 0);
 }
 
-.SearchBar {
+.SearchBar form{
   display: flex;
   align-items: center;
   justify-content: center;
