@@ -31,6 +31,7 @@ function LoginForm({ loginUser }) {
 
   return (
     <div className="LoginForm">
+      <h2>Log in</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="LoginForm-username">Username</label>
         <input

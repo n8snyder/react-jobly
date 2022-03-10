@@ -33,6 +33,7 @@ function SignUpForm({ loginUser }) {
 
     return (
         <div className="SignUpForm">
+            <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="SignUpForm-Username">Username</label>
                 <input

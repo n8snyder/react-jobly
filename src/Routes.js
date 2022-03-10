@@ -5,6 +5,7 @@ import Jobly from "./Jobly";
 import Jobs from "./Jobs";
 import SignUpForm from "./SignUpForm";
 import LoginForm from "./LoginForm";
+import ProfileForm from "./ProfileForm";
 
 /** Routes
  * 
@@ -22,6 +23,9 @@ function Routes() {
       </Route>
       <Route exact path="/login" >
         <LoginForm />
+      </Route>
+      <Route exact path="/profile" >
+        <ProfileForm />  
       </Route>
       <Route exact path="/companies" >
         <Companies />

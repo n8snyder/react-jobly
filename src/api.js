@@ -62,6 +62,11 @@ class JoblyApi {
     const res = await this.request("jobs", { title: filterTitle });
     return res.jobs;
   }
+
+  static async getCurrentUser(username){
+    const res = await this.request(`users/${username}`);
+    return res.user;
+  }
 }
 
 export default JoblyApi;
