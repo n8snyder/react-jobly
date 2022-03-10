@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import JoblyApi from "./api";
 import Company from "./Company"
 import SearchBar from "./SearchBar";
+import "./Companies.css"
 
 /** Companies, list of companies with search bar
  * 
