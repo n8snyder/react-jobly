@@ -1,57 +1,75 @@
-App                                                      General page wrapper
-  no props or state
+App                                                        General page wrapper
+  no props
+  state:
+    user: object of a user
 
-  Nav
-    no props or state                                    Nav bar at the top of each page
+  UserContext.Provider                                     Context with data on logged in user
+
+    Nav                                                    Nav bar at the top of each page
+      no props or state
 
 
-  Routes                                                 Routes for the app
-    no props or state
+    Routes                                                 Routes for the app
+      no props or state
 
-    Jobly                                                Welcome page
-      no props or state 
-  
-    Companies                                            Top level companies component
-      no props
-      state:
-        companies: array of companies
-
-      SearchBar                                          Reuseable search bar
-        props: 
-          performSearch: function from parent component
+      Jobly                                                Welcome page
+        no props or state 
+    
+      LoginForm                                            Form for logging in
+        no props
         state:
-          formData: object of the form's values
+          formData: object of form field values
 
-      Company                                          A single company(name, description, logo)
-        props:
-          company: object of a company
+      SignUpForm                                           Form for creating a new account
+        no props
+          state:
+            formData: object of form field values
+
+      ProfileForm                                          Form for editing user details 
+        no props
+          formData: object of form field values
+
+      Companies                                            Top level companies component
+        no props
+        state:
+          companies: array of companies
+
+        SearchBar                                          Reuseable search bar
+          props: 
+            performSearch: function from parent component
+          state:
+            formData: object of the form's values
+
+        Company                                          A single company(name, description, logo)
+          props:
+            company: object of a company
 
 
-    CompanyDetails                                       Description of one company with list of jobs
-      no props
-      state: 
-        company: object of company
+      CompanyDetails                                       Description of one company with list of jobs
+        no props
+        state: 
+          company: object of company
 
-        Job                                              Description of one job
+          Job                                              Description of one job
+            props:
+              job: object of a job
+
+
+
+      Jobs                                                 Top level Jobs component
+        no props
+        state:
+          jobs: array of jobs
+
+        SearchBar                                          Reuseable search bar
+          props: 
+            performSearch: function from parent component
+          state:
+            formData: object of the form's values
+
+        Job                                                 Description of one job
           props:
             job: object of a job
-
-
-
-    Jobs                                                 Top level Jobs component
-      no props
-      state:
-        jobs: array of jobs
-
-      SearchBar                                          Reuseable search bar
-        props: 
-          performSearch: function from parent component
-        state:
-          formData: object of the form's values
-
-      Job                                                 Description of one job
-        props:
-          job: object of a job
 
 
 
