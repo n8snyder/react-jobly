@@ -16,17 +16,21 @@ App                                                        General page wrapper
         no props or state 
     
       LoginForm                                            Form for logging in
-        no props
+        props:
+          loginUser: function to login as user
         state:
           formData: object of form field values
 
       SignUpForm                                           Form for creating a new account
-        no props
-          state:
-            formData: object of form field values
+        props:
+          signUser: function to sign up new user
+        state:
+          formData: object of form field values
 
       ProfileForm                                          Form for editing user details 
-        no props
+        props:
+          updateUser: function to update user profile
+        state:
           formData: object of form field values
 
       Companies                                            Top level companies component
