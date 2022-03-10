@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "./NavBar.css";
 
 /** Show Nav bar, which has returning to Jobly, going to list of companies, and
  * list of jobs
@@ -11,18 +12,22 @@ import { NavLink } from "react-router-dom";
  */
 
 function NavBar() {
-    
+
     return (
         <nav className="NavBar">
-            <NavLink exact to="/">
-                Jobly
-            </NavLink>
-            <NavLink exact to="/companies">
-                Companies
-            </NavLink>
-            <NavLink exact to="/jobs">
-                Jobs
-            </NavLink>
+            <div className="jobly-nav">
+                <NavLink exact to="/">
+                    Jobly
+                </NavLink>
+            </div>
+            <div className="main-nav">
+                <NavLink exact to="/companies">
+                    Companies
+                </NavLink>
+                <NavLink exact to="/jobs">
+                    Jobs
+                </NavLink>
+            </div>
         </nav>
     );
 }
