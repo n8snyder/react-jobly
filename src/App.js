@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
 import NavBar from './NavBar';
 import UserContext from "./userContext";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import JoblyApi from './api';
 
 
@@ -31,16 +31,27 @@ function App() {
     setToken(newToken);
   }
 
+  //Function for updating user profile
   async function update(userData) {
     const updatedUserData = await JoblyApi.updateUser(userData);
     setUser(updatedUserData);
   }
 
+  // useEffect(function fetchUserWhenTokenChange() {
+  //   async function fetchUser() {
+  //     const userResult = await JoblyApi.
+  //   }
+  //     setUser
+  // })
+  
+
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
-        <Routes />
+        <UserContext.Provider value={user}>
+          <NavBar />
+          <Routes />
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );
