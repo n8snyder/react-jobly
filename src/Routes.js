@@ -3,6 +3,8 @@ import Companies from "./Companies";
 import CompanyDetails from "./CompanyDetails";
 import Jobly from "./Jobly";
 import Jobs from "./Jobs";
+import SignUpForm from "./SignUpForm";
+import LoginForm from "./LoginForm";
 
 /** Routes
  * 
@@ -14,6 +16,12 @@ function Routes() {
     <Switch>
       <Route exact path="/" >
         <Jobly />
+      </Route>
+      <Route exact path="/signup" >
+        <SignUpForm />
+      </Route>
+      <Route exact path="/login" >
+        <LoginForm />
       </Route>
       <Route exact path="/companies" >
         <Companies />

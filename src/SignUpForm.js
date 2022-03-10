@@ -12,13 +12,13 @@ import { useState } from "react";
  */
 
 function SignUpForm({ loginUser }) {
-    const initialFormData = { 
-                            username: "", 
-                            password: "", 
-                            firstname: "", 
-                            lastname: "", 
-                            email: ""
-                            };
+    const initialFormData = {
+        username: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+        email: ""
+    };
     const [formData, setFormData] = useState(initialFormData);
 
     function handleSubmit(evt) {
@@ -28,7 +28,7 @@ function SignUpForm({ loginUser }) {
 
     function handleChange(evt) {
         const { name, value } = evt.target;
-        setFormData(data => ({...data, [name]: value }));
+        setFormData(data => ({ ...data, [name]: value }));
     }
 
     return (
@@ -37,40 +37,40 @@ function SignUpForm({ loginUser }) {
                 <label htmlFor="SignUpForm-Username">Username</label>
                 <input
                     id="SignUpForm-Username"
-                    name="username" 
-                    value={formData.username} 
-                    onChange={handleChange} 
-                />
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                /> <br />
                 <label htmlFor="SignUpForm-password">Password</label>
                 <input
                     id="SignUpForm-password"
-                    name="password" 
-                    value={formData.password} 
-                    onChange={handleChange} 
-                    type = "password"
-                />
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    type="password"
+                /> <br />
                 <label htmlFor="SignUpForm-firstname">First name</label>
                 <input
                     id="SignUpForm-firstname"
-                    name="firstname" 
-                    value={formData.firstname} 
-                    onChange={handleChange} 
-                />
+                    name="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
+                /> <br />
                 <label htmlFor="SignUpForm-lastname">Last name</label>
                 <input
                     id="SignUpForm-lastname"
-                    name="lastname" 
-                    value={formData.lastname} 
-                    onChange={handleChange} 
-                />
+                    name="lastname"
+                    value={formData.lastname}
+                    onChange={handleChange}
+                /> <br />
                 <label htmlFor="SignUpForm-email">Email</label>
                 <input
                     id="SignUpForm-email"
-                    name="email" 
-                    value={formData.email} 
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    type = "email"
-                />
+                    type="email"
+                /> <br />
                 <button>Submit</button>
             </form>
         </div>
