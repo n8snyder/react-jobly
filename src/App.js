@@ -19,22 +19,24 @@ import jwt_decode from "jwt-decode";
  */
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  console.log("Local Storage user:", localStorage.getItem("user"));
+  console.log("Render App:", token, user);
 
   // Function for logging in
   async function logIn(userCredentials) {
     const newToken = await JoblyApi.logIn(userCredentials);
-    JoblyApi.token = newToken;
     setToken(newToken);
-
+    localStorage.setItem("token", newToken);
   }
 
   // Function for creating new account
   async function signUp(userData) {
     const newToken = await JoblyApi.signUp(userData);
-    JoblyApi.token = newToken;
     setToken(newToken);
+    localStorage.setItem("token", newToken);
   }
 
   //Function for updating user profile
@@ -51,15 +53,19 @@ function App() {
 
   // Function for logging current user out(token in JoblyApi need to be null too)
   function logOut() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     setUser(null);
     setToken(null);
   }
 
   useEffect(function fetchUserWhenTokenChange() {
+    JoblyApi.token = token;
     async function fetchUser() {
       const { username } = jwt_decode(token);
       const userData = await JoblyApi.getCurrentUser(username);
       setUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
     }
     if (token) {
       fetchUser();
