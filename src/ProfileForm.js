@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Redirect } from "react-router-dom";
 import UserContext from "./userContext";
 
 /** Form for editing user details
@@ -15,15 +16,18 @@ import UserContext from "./userContext";
 function ProfileForm({ updateUser }) {
   const userData = useContext(UserContext).user;
   const initialFormData = {
-                            username: userData.username,
-                            firstName: userData.firstName,
-                            lastName: userData.lastName,
-                            email: userData.email 
-                          }
+    username: userData?.username,
+    firstName: userData?.firstName,
+    lastName: userData?.lastName,
+    email: userData?.email
+  }
   const [formData, setFormData] = useState(initialFormData);
 
-  // TODO: redirect if not logged in
+  const { user } = useContext(UserContext);
 
+  if (user === null) {
+    return (<Redirect to="/login" />);
+  }
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -69,7 +73,7 @@ function ProfileForm({ updateUser }) {
           onChange={handleChange}
           type="email"
         /> <br />
-        <button>Submit</button>
+        <button>Save Changes</button>
       </form>
     </div>
   )

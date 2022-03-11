@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import JoblyApi from "./api";
 import SearchBar from "./SearchBar";
 import Job from "./Job";
+import UserContext from "./userContext";
+import { Redirect } from "react-router-dom";
 
 /** Jobs, list of jobs with search bar
  * 
@@ -15,16 +17,21 @@ import Job from "./Job";
 function Jobs() {
   const [jobs, setJobs] = useState(null);
 
+  useEffect(function fetchJobsWhenMounted() {
+    fetchJobs();
+  }, []);
+
+  const { user } = useContext(UserContext);
+  if (user === null) {
+    return (<Redirect to="/login" />);
+  }
+
   // Get jobs based on searching word user typed in
   async function fetchJobs(formData) {
     const searchTerm = formData?.search;
     const newJobs = await JoblyApi.getJobs(searchTerm);
     setJobs(newJobs);
   }
-
-  useEffect(function fetchJobsWhenMounted() {
-    fetchJobs();
-  }, []);
 
   if (jobs === null) {
     return <p className="Jobs">Loading...</p>

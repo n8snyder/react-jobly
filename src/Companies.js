@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import JoblyApi from "./api";
 import Company from "./Company"
 import SearchBar from "./SearchBar";
 import "./Companies.css"
+import UserContext from "./userContext";
+import { Redirect } from "react-router-dom";
 
 /** Companies, list of companies with search bar
  * 
@@ -25,6 +27,11 @@ function Companies() {
   useEffect(function fetchCompaniesWhenMounted() {
     fetchCompanies();
   }, []);
+
+  const { user } = useContext(UserContext);
+  if (user === null) {
+    return (<Redirect to="/login" />);
+  }
 
   if (companies === null) {
     return <p className="Companies">Loading...</p>
