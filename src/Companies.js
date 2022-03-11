@@ -14,6 +14,7 @@ import UserContext from "./userContext";
  */
 
 function Companies() {
+  console.log("Rendering companies");
   const [companies, setCompanies] = useState(null);
   const { user } = useContext(UserContext);
 
@@ -26,6 +27,7 @@ function Companies() {
 
 
   useEffect(function fetchCompaniesWhenMounted() {
+    console.log("user is", user);
     if (user) fetchCompanies();
   }, [user]);
 

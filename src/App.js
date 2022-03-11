@@ -20,8 +20,10 @@ import jwt_decode from "jwt-decode";
 
 //TODO: function to get user from localStorage
 function App() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null);
+  function getUser(){
+    return (JSON.parse(localStorage.getItem("user")) || null);
+  }
+  const [user, setUser] = useState(getUser);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
 
   // Function for logging in

@@ -50,6 +50,7 @@ function ProfileForm({ updateUser }) {
           name="firstName"
           value={formData.firstName}
           onChange={handleChange}
+          required
         /> <br />
         <label htmlFor="ProfileForm-lastName">Last name</label>
         <input
@@ -57,6 +58,7 @@ function ProfileForm({ updateUser }) {
           name="lastName"
           value={formData.lastName}
           onChange={handleChange}
+          required
         /> <br />
         <label htmlFor="ProfileForm-email">Email</label>
         <input
@@ -65,6 +67,7 @@ function ProfileForm({ updateUser }) {
           value={formData.email}
           onChange={handleChange}
           type="email"
+          required
         /> <br />
         <button>Save Changes</button>
       </form>
