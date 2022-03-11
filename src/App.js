@@ -35,7 +35,7 @@ function App() {
   }
 
   //Function for updating user profile
-  async function update(userData) {
+  async function updateUser(userData) {
     const updatedUserData = await JoblyApi.updateUser(userData);
     setUser(updatedUserData);
   }
@@ -46,19 +46,19 @@ function App() {
       const userData = await JoblyApi.getCurrentUser(username);
       setUser(userData);
     }
-    if(token){
+    if (token) {
       fetchUser();
     }
-      
-  }, [ token ]);
-  
+
+  }, [token]);
+
 
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={user}>
           <NavBar />
-          <Routes />
+          <Routes logIn={logIn} signUp={signUp} updateUser={updateUser} />
         </UserContext.Provider>
       </BrowserRouter>
     </div>

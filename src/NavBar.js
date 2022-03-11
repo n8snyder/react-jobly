@@ -16,7 +16,7 @@ function NavBar() {
     return (
         <nav className="NavBar">
             <div className="jobly-nav">
-                <Link exact to="/">
+                <Link to="/">
                     Jobly
                 </Link>
             </div>

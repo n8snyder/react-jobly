@@ -4,26 +4,26 @@ import { useState } from "react";
 /**Form to sign up new user
  * 
  * props:
- *  loginUser: function to login as user
+ *  signUpUser: function to login as user
  * 
  * state:
  *  formData: object of form field values
  * 
  */
 
-function SignUpForm({ loginUser }) {
+function SignUpForm({ signUpUser }) {
     const initialFormData = {
         username: "",
         password: "",
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         email: ""
     };
     const [formData, setFormData] = useState(initialFormData);
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        loginUser(formData);
+        signUpUser(formData);
     }
 
     function handleChange(evt) {
@@ -53,14 +53,14 @@ function SignUpForm({ loginUser }) {
                 <label htmlFor="SignUpForm-firstname">First name</label>
                 <input
                     id="SignUpForm-firstname"
-                    name="firstname"
+                    name="firstName"
                     value={formData.firstname}
                     onChange={handleChange}
                 /> <br />
                 <label htmlFor="SignUpForm-lastname">Last name</label>
                 <input
                     id="SignUpForm-lastname"
-                    name="lastname"
+                    name="lastName"
                     value={formData.lastname}
                     onChange={handleChange}
                 /> <br />

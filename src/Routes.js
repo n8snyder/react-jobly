@@ -12,20 +12,20 @@ import ProfileForm from "./ProfileForm";
  * App -> Routes -> {Jobly, Companies, Jobs, CompanyDetails}
  */
 
-function Routes() {
+function Routes({ logIn, signUp, updateUser }) {
   return (
     <Switch>
       <Route exact path="/" >
         <Jobly />
       </Route>
       <Route exact path="/signup" >
-        <SignUpForm />
+        <SignUpForm signUpUser={signUp} />
       </Route>
       <Route exact path="/login" >
-        <LoginForm />
+        <LoginForm loginUser={logIn} />
       </Route>
       <Route exact path="/profile" >
-        <ProfileForm />  
+        <ProfileForm updateUser={updateUser} />
       </Route>
       <Route exact path="/companies" >
         <Companies />
