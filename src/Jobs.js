@@ -16,12 +16,15 @@ import { Redirect } from "react-router-dom";
 
 function Jobs() {
   const [jobs, setJobs] = useState(null);
+  const { user } = useContext(UserContext);
 
   useEffect(function fetchJobsWhenMounted() {
-    fetchJobs();
-  }, []);
+    if(user){
+      fetchJobs();
+    } 
+  }, [user]);
 
-  const { user } = useContext(UserContext);
+  //If not logged in redirect to login page
   if (user === null) {
     return (<Redirect to="/login" />);
   }

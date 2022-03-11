@@ -16,6 +16,7 @@ import { Redirect } from "react-router-dom";
 
 function Companies() {
   const [companies, setCompanies] = useState(null);
+  const { user } = useContext(UserContext);
 
   // Get companies based on searching word user typed in
   async function fetchCompanies(formData) {
@@ -24,11 +25,12 @@ function Companies() {
     setCompanies(newCompanies);
   }
 
+  
   useEffect(function fetchCompaniesWhenMounted() {
-    fetchCompanies();
-  }, []);
+    if(user) fetchCompanies();
+  }, [user]);
 
-  const { user } = useContext(UserContext);
+  //If not logged in redirect to login page
   if (user === null) {
     return (<Redirect to="/login" />);
   }

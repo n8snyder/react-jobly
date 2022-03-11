@@ -15,7 +15,7 @@ import { Redirect } from "react-router-dom";
 
 function SignUpForm({ signUpUser }) {
     const { user } = useContext(UserContext);
-    
+
 
     const initialFormData = {
         username: "",
@@ -26,7 +26,8 @@ function SignUpForm({ signUpUser }) {
     };
     const [formData, setFormData] = useState(initialFormData);
 
-    if(user){
+    //If logged in redirect to home page
+    if (user) {
         return (<Redirect to="/" />);
     }
 

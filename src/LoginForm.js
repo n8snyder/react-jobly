@@ -18,6 +18,7 @@ function LoginForm({ loginUser }) {
   const [formData, setFormData] = useState(initialFormData);
   const { user } = useContext(UserContext);
 
+  //If logged in redirect to home page
   if(user){
     return (<Redirect to="/" />);
   }

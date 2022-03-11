@@ -49,7 +49,7 @@ function App() {
     setUser(updatedUserData);
   }
 
-  // Function for logging current user out
+  // Function for logging current user out(token in JoblyApi need to be null too)
   function logOut() {
     setUser(null);
     setToken(null);

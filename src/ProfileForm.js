@@ -25,6 +25,7 @@ function ProfileForm({ updateUser }) {
 
   const { user } = useContext(UserContext);
 
+  //If not logged in redirect to login page
   if (user === null) {
     return (<Redirect to="/login" />);
   }
