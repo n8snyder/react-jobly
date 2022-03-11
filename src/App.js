@@ -22,8 +22,6 @@ function App() {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
-  console.log("Local Storage user:", localStorage.getItem("user"));
-  console.log("Render App:", token, user);
 
   // Function for logging in
   async function logIn(userCredentials) {
@@ -67,10 +65,10 @@ function App() {
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
     }
-    if (token) {
+    if (token && user === null) {
       fetchUser();
     }
-  }, [token]);
+  }, [token, user]);
 
 
 
