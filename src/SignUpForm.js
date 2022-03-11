@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "./userContext";
+import { Redirect } from "react-router-dom";
 
 
 /**Form to sign up new user
@@ -12,6 +14,9 @@ import { useState } from "react";
  */
 
 function SignUpForm({ signUpUser }) {
+    const { user } = useContext(UserContext);
+    
+
     const initialFormData = {
         username: "",
         password: "",
@@ -20,6 +25,10 @@ function SignUpForm({ signUpUser }) {
         email: ""
     };
     const [formData, setFormData] = useState(initialFormData);
+
+    if(user){
+        return (<Redirect to="/" />);
+    }
 
     function handleSubmit(evt) {
         evt.preventDefault();

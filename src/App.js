@@ -24,14 +24,16 @@ function App() {
 
   async function logIn(userCredentials) {
     const newToken = await JoblyApi.logIn(userCredentials);
-    setToken(newToken);
     JoblyApi.token = newToken;
+    setToken(newToken);
+    
   }
 
   async function signUp(userData) {
     const newToken = await JoblyApi.signUp(userData);
-    setToken(newToken);
     JoblyApi.token = newToken;
+    setToken(newToken);
+    
   }
 
   //Function for updating user profile
@@ -56,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{user}}>
           <NavBar />
           <Routes logIn={logIn} signUp={signUp} updateUser={updateUser} />
         </UserContext.Provider>

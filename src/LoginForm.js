@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "./userContext";
+import { Redirect } from "react-router-dom";
 
 /** Form for logging in
  * 
@@ -14,6 +16,11 @@ import { useState } from "react";
 function LoginForm({ loginUser }) {
   const initialFormData = { username: "", password: "" };
   const [formData, setFormData] = useState(initialFormData);
+  const { user } = useContext(UserContext);
+
+  if(user){
+    return (<Redirect to="/" />);
+  }
 
   // handles form submission
   function handleSubmit(evt) {
