@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "./userContext";
 
 /** Form for editing user details
  * 
@@ -12,8 +13,10 @@ import { useState } from "react";
  */
 
 function ProfileForm({ updateUser }) {
-  const initialFormData = { username: "", firstname: "", lastname: "", email: "" };
+  const initialFormData = useContext(UserContext).user;
   const [formData, setFormData] = useState(initialFormData);
+
+  // TODO: redirect if not logged in
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -29,25 +32,25 @@ function ProfileForm({ updateUser }) {
     <div className="ProfileForm">
       <h2>Profile</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="ProfileForm-Username">Username</label>
+        <label htmlFor="ProfileForm-username">Username</label>
         <input
-          id="ProfileForm-Username"
+          id="ProfileForm-username"
           name="username"
           value={formData.username}
           onChange={handleChange}
         /> <br />
-        <label htmlFor="ProfileForm-firstname">First name</label>
+        <label htmlFor="ProfileForm-firstName">First name</label>
         <input
-          id="ProfileForm-firstname"
-          name="firstname"
-          value={formData.firstname}
+          id="ProfileForm-firstName"
+          name="firstName"
+          value={formData.firstName}
           onChange={handleChange}
         /> <br />
-        <label htmlFor="ProfileForm-lastname">Last name</label>
+        <label htmlFor="ProfileForm-lastName">Last name</label>
         <input
-          id="ProfileForm-lastname"
-          name="lastname"
-          value={formData.lastname}
+          id="ProfileForm-lastName"
+          name="lastName"
+          value={formData.lastName}
           onChange={handleChange}
         /> <br />
         <label htmlFor="ProfileForm-email">Email</label>
