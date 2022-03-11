@@ -30,10 +30,11 @@ function Companies() {
     if(user) fetchCompanies();
   }, [user]);
 
-  //If not logged in redirect to login page
-  if (user === null) {
-    return (<Redirect to="/login" />);
-  }
+
+  // //If not logged in redirect to login page
+  // if (user === null) {
+  //   return (<Redirect to="/login" />);
+  // }
 
   if (companies === null) {
     return <p className="Companies">Loading...</p>

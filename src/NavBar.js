@@ -14,11 +14,12 @@ import UserContext from "./userContext";
  * App -> NavBar 
  */
 
+//Navbar -> Navbar-partname
 function NavBar({ logOut }) {
     const { user } = useContext(UserContext);
     return (
         <nav className="NavBar">
-            <div className="jobly-nav">
+            <div className="NavBar-nav">
                 <Link to="/">
                     Jobly
                 </Link>

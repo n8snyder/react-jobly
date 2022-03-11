@@ -24,9 +24,10 @@ function LoginForm({ loginUser }) {
   }
 
   // handles form submission
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    loginUser(formData);
+    //TODO: include try and catch around await
+    await loginUser(formData);
   }
 
   // update field value on change
@@ -43,6 +44,7 @@ function LoginForm({ loginUser }) {
       <form onSubmit={handleSubmit}>
         <label htmlFor="LoginForm-username">Username</label>
         <input
+          required
           id="LoginForm-username"
           name="username"
           value={formData.username}
@@ -50,6 +52,7 @@ function LoginForm({ loginUser }) {
         /> <br />
         <label htmlFor="LoginForm-password">Password</label>
         <input
+          required
           id="LoginForm-password"
           name="password"
           value={formData.password}

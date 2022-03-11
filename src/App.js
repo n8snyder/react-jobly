@@ -18,6 +18,7 @@ import jwt_decode from "jwt-decode";
  * App -> {NavBar, Routes}
  */
 
+//TODO: function to get user from localStorage
 function App() {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null);
@@ -65,7 +66,8 @@ function App() {
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
     }
-    if (token && user === null) {
+    //Make sure to put ()
+    if (token && (user === null)) {
       fetchUser();
     }
   }, [token, user]);

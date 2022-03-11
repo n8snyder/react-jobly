@@ -24,10 +24,10 @@ function Jobs() {
     } 
   }, [user]);
 
-  //If not logged in redirect to login page
-  if (user === null) {
-    return (<Redirect to="/login" />);
-  }
+  // //If not logged in redirect to login page
+  // if (user === null) {
+  //   return (<Redirect to="/login" />);
+  // }
 
   // Get jobs based on searching word user typed in
   async function fetchJobs(formData) {

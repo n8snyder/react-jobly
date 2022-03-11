@@ -72,7 +72,7 @@ class JoblyApi {
   }
 
 
-  /** Sign up a new user */
+  /** Sign up a new user (what is in userData??)*/
 
   static async signUp(userData) {
     const res = await this.request("auth/register", userData, "post");
