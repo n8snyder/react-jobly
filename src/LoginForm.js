@@ -1,6 +1,4 @@
-import { useState, useContext } from "react";
-import UserContext from "./userContext";
-import { Redirect } from "react-router-dom";
+import { useState } from "react";
 
 /** Form for logging in
  * 
@@ -9,6 +7,7 @@ import { Redirect } from "react-router-dom";
  * 
  * State:
  * - formData: object of form fields and values
+ * - errors: array of errors that may occur in the form
  * 
  * Router -> LoginForm
  */
@@ -16,18 +15,18 @@ import { Redirect } from "react-router-dom";
 function LoginForm({ loginUser }) {
   const initialFormData = { username: "", password: "" };
   const [formData, setFormData] = useState(initialFormData);
-  const { user } = useContext(UserContext);
-
-  //If logged in redirect to home page
-  if(user){
-    return (<Redirect to="/" />);
-  }
+  const [error, setError] = useState(null);
 
   // handles form submission
   async function handleSubmit(evt) {
     evt.preventDefault();
     //TODO: include try and catch around await
-    await loginUser(formData);
+    try {
+      await loginUser(formData);
+    } catch (err) {
+      setError(err[0]);
+    }
+
   }
 
   // update field value on change
@@ -41,6 +40,8 @@ function LoginForm({ loginUser }) {
   return (
     <div className="LoginForm">
       <h2>Log in</h2>
+      {error &&
+        <p className="LoginForm-error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="LoginForm-username">Username</label>
         <input

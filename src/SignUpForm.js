@@ -1,6 +1,4 @@
-import { useState, useContext } from "react";
-import UserContext from "./userContext";
-import { Redirect } from "react-router-dom";
+import { useState } from "react";
 
 
 /**Form to sign up new user
@@ -14,8 +12,6 @@ import { Redirect } from "react-router-dom";
  */
 
 function SignUpForm({ signUpUser }) {
-    const { user } = useContext(UserContext);
-
 
     const initialFormData = {
         username: "",
@@ -25,15 +21,15 @@ function SignUpForm({ signUpUser }) {
         email: ""
     };
     const [formData, setFormData] = useState(initialFormData);
+    const [error, setError] = useState(null);
 
-    //If logged in redirect to home page
-    if (user) {
-        return (<Redirect to="/" />);
-    }
-
-    function handleSubmit(evt) {
+    async function handleSubmit(evt) {
         evt.preventDefault();
-        signUpUser(formData);
+        try {
+            await signUpUser(formData);
+        } catch (err) {
+            setError(err[0]);
+        }
     }
 
     function handleChange(evt) {
@@ -44,13 +40,16 @@ function SignUpForm({ signUpUser }) {
     return (
         <div className="SignUpForm">
             <h2>Sign Up</h2>
+            {error &&
+                <p className="SignUpForm-error">{error}</p>}
             <form onSubmit={handleSubmit}>
-                <label htmlFor="SignUpForm-Username">Username</label>
+                <label htmlFor="SignUpForm-username">Username</label>
                 <input
-                    id="SignUpForm-Username"
+                    id="SignUpForm-username"
                     name="username"
                     value={formData.username}
                     onChange={handleChange}
+                    required
                 /> <br />
                 <label htmlFor="SignUpForm-password">Password</label>
                 <input
@@ -59,6 +58,8 @@ function SignUpForm({ signUpUser }) {
                     value={formData.password}
                     onChange={handleChange}
                     type="password"
+                    required
+                    minlength="5"
                 /> <br />
                 <label htmlFor="SignUpForm-firstname">First name</label>
                 <input
@@ -66,6 +67,7 @@ function SignUpForm({ signUpUser }) {
                     name="firstName"
                     value={formData.firstname}
                     onChange={handleChange}
+                    required
                 /> <br />
                 <label htmlFor="SignUpForm-lastname">Last name</label>
                 <input
@@ -73,6 +75,7 @@ function SignUpForm({ signUpUser }) {
                     name="lastName"
                     value={formData.lastname}
                     onChange={handleChange}
+                    required
                 /> <br />
                 <label htmlFor="SignUpForm-email">Email</label>
                 <input
@@ -81,6 +84,7 @@ function SignUpForm({ signUpUser }) {
                     value={formData.email}
                     onChange={handleChange}
                     type="email"
+                    required
                 /> <br />
                 <button>Submit</button>
             </form>

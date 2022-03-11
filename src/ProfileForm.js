@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { Redirect } from "react-router-dom";
 import UserContext from "./userContext";
 
 /** Form for editing user details
@@ -22,13 +21,6 @@ function ProfileForm({ updateUser }) {
     email: userData?.email
   }
   const [formData, setFormData] = useState(initialFormData);
-
-  const { user } = useContext(UserContext);
-
-  //If not logged in redirect to login page
-  if (user === null) {
-    return (<Redirect to="/login" />);
-  }
 
   function handleSubmit(evt) {
     evt.preventDefault();
