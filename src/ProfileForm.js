@@ -13,10 +13,17 @@ import UserContext from "./userContext";
  */
 
 function ProfileForm({ updateUser }) {
-  const initialFormData = useContext(UserContext).user;
+  const userData = useContext(UserContext).user;
+  const initialFormData = {
+                            username: userData.username,
+                            firstName: userData.firstName,
+                            lastName: userData.lastName,
+                            email: userData.email 
+                          }
   const [formData, setFormData] = useState(initialFormData);
 
   // TODO: redirect if not logged in
+
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -38,6 +45,7 @@ function ProfileForm({ updateUser }) {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          disabled
         /> <br />
         <label htmlFor="ProfileForm-firstName">First name</label>
         <input

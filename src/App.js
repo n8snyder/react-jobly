@@ -39,7 +39,9 @@ function App() {
 
   //Function for updating user profile
   async function updateUser(userData) {
-    const updatedUserData = await JoblyApi.updateUser(userData);
+    const username = userData.username;
+    userData.username = undefined;
+    const updatedUserData = await JoblyApi.updateUser(userData, username);
     setUser(updatedUserData);
   }
 
