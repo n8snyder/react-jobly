@@ -1,7 +1,8 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
-import NavBar from './NavBar';
+import JoblyNavBar from './JoblyNavBar';
 import UserContext from "./userContext";
 import { useEffect, useState } from 'react';
 import JoblyApi from './api';
@@ -15,10 +16,10 @@ import jwt_decode from "jwt-decode";
  * - user: object of the logged in user
  * - token: string of authentication token used to make api calls
  * 
- * App -> {NavBar, Routes}
+ * App -> {JoblyNavBar, Routes}
  */
 
-//TODO: function to get user from localStorage
+
 function App() {
   function getUser(){
     return (JSON.parse(localStorage.getItem("user")) || null);
@@ -80,7 +81,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={{ user }}>
-          <NavBar logOut={logOut} />
+          <JoblyNavBar logOut={logOut} />
           <Routes logIn={logIn} signUp={signUp} updateUser={updateUser} />
         </UserContext.Provider>
       </BrowserRouter>

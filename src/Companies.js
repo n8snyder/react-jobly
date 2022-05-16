@@ -36,13 +36,12 @@ function Companies() {
   return (
     <div className="Companies">
       <SearchBar performSearch={fetchCompanies} />
-      <ul>
+      <ul className="px-4 pb-4">
         {companies.length === 0 && <h2>Sorry... No companies found</h2>}
         {companies.map(company => {
           return <li key={company.handle}><Company company={company} /></li>
         })}
       </ul>
-
     </div>
   );
 }

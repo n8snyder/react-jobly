@@ -7,16 +7,22 @@
  * Jobs -> Job
  */
 
+import { Card, CardTitle, CardText } from "reactstrap";
+
 
 function Job({ job }) {
-    return (
-        <div className="job">
-            <h4>{job.title}</h4>
-            <p>{job.companyName}</p>
-            <p>Equity: {job.equity}</p>
-            <p>Salary: {job.salary}</p>
-        </div>
-    );
+  return (
+    <Card className="job p-4 my-4 shadow-sm">
+      <CardTitle tag="h5">
+        {job.title}
+      </CardTitle>
+      <CardText className="pt-1">
+        {job.companyName}<br/>
+        Equity: {job.equity}<br/>
+        Salary: {job.salary}
+      </CardText>
+    </Card>
+  );
 }
 
 export default Job;

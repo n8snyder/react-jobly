@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Card, CardText, CardTitle } from "reactstrap";
 
 /** Company: One company component
  * 
@@ -10,13 +11,24 @@ import { Link } from "react-router-dom";
  */
 
 function Company({ company }) {
-    return (
-        <Link className="company" to={`/companies/${company.handle}`}>
-            <h6>{company.name}</h6>
-            <p>{company.description}</p>
-            {company.logoUrl && <img src={company.logoUrl} alt="companylogo" />}
-        </Link>
-    );
+  return (
+    <Link to={`/companies/${company.handle}`} className="text-decoration-none text-reset">
+      <Card className="Company p-4 my-4">
+        <CardTitle tag="h5">
+          {company.name}
+          {company.logoUrl && 
+            <img 
+              src={company.logoUrl} 
+              alt="companylogo" 
+              className="position-absolute top-0 end-0 me-3 mt-2" 
+              width={70} />}
+        </CardTitle>
+        <CardText className="pt-1">
+          {company.description}
+        </CardText>
+      </Card>
+    </Link>
+  );
 }
 
 export default Company;

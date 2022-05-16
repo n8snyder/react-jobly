@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from "./api";
 import Job from "./Job";
+import "./CompanyDetails.css"
 
 
 /** CompanyDetails, details about a company and list of their jobs
@@ -32,12 +33,16 @@ function CompanyDetails() {
 
   return (
     <div className="CompanyDetails">
-      <h3>{company.name}</h3>
-      <p>{company.description}</p>
+      <div className="details px-4 mt-4">
+        <h3 className="fw-bold">{company.name}</h3>
+        <p className="lead">{company.description}</p>
+      </div>
 
-      {company.jobs.map(job => {
-        return <li key={job.id}><Job job={job} /></li>
-      })}
+      <ul className="px-4 pb-4">
+        {company.jobs.map(job => {
+          return <li  key={job.id}><Job job={job} /></li>
+        })}
+      </ul>
     </div>
   );
 }

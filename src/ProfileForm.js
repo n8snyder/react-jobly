@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import UserContext from "./userContext";
+import { Button, Col, Row, Form, FormGroup, Input, Label, Card, CardTitle } from "reactstrap";
 
 /** Form for editing user details
  * 
@@ -34,43 +35,91 @@ function ProfileForm({ updateUser }) {
 
   return (
     <div className="ProfileForm">
-      <h2>Profile</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="ProfileForm-username">Username</label>
-        <input
-          id="ProfileForm-username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          disabled
-        /> <br />
-        <label htmlFor="ProfileForm-firstName">First name</label>
-        <input
-          id="ProfileForm-firstName"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-        /> <br />
-        <label htmlFor="ProfileForm-lastName">Last name</label>
-        <input
-          id="ProfileForm-lastName"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-        /> <br />
-        <label htmlFor="ProfileForm-email">Email</label>
-        <input
-          id="ProfileForm-email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          type="email"
-          required
-        /> <br />
-        <button>Save Changes</button>
-      </form>
+      <Card className="p-4 m-4">
+        <CardTitle className="text-center pb-3" tag={"h1"}>Profile</CardTitle>
+
+        <Form onSubmit={handleSubmit}>
+          <FormGroup row>
+            <Label
+              style={{maxWidth: "110px"}}
+              className="px-3"
+              for="ProfileForm-username"
+              sm={2}
+              >
+              Username
+            </Label>
+            <Col sm={8}>
+              <Input
+                className="px-3"
+                id="ProfileForm-username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                disabled
+                />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label
+              style={{maxWidth: "110px"}}
+              className="px-3"
+              for="ProfileForm-firstName"
+              sm={2}
+              >
+              First name
+            </Label>
+            <Col sm={8}>
+              <Input
+                id="ProfileForm-firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+                />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label
+              style={{maxWidth: "110px"}}
+              className="px-3"
+              for="ProfileForm-lastName"
+              sm={2}
+              >
+              Last name
+            </Label>
+            <Col sm={8}>
+              <Input
+                id="ProfileForm-lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+                />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label
+              style={{maxWidth: "110px"}}
+              className="px-3"
+              for="ProfileForm-email"
+              sm={2}
+              >
+              Email
+            </Label>
+            <Col sm={8}>
+              <Input
+                id="ProfileForm-email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                type="email"
+                required
+                />
+            </Col>
+          </FormGroup>
+          <Button color="primary">Save Changes</Button>
+        </Form>
+      </Card>
     </div>
   )
 }

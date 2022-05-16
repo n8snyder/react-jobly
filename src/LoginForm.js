@@ -1,4 +1,16 @@
 import { useState } from "react";
+import { 
+  Button, 
+  Card, 
+  CardTitle, 
+  Form, 
+  FormGroup, 
+  Input, 
+  Label, 
+  Col, 
+  Alert
+} from "reactstrap"
+
 
 /** Form for logging in
  * 
@@ -17,19 +29,15 @@ function LoginForm({ loginUser }) {
   const [formData, setFormData] = useState(initialFormData);
   const [error, setError] = useState(null);
 
-  // handles form submission
   async function handleSubmit(evt) {
     evt.preventDefault();
-    //TODO: include try and catch around await
     try {
       await loginUser(formData);
     } catch (err) {
       setError(err[0]);
     }
-
   }
 
-  // update field value on change
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData(oldForm => {
@@ -39,29 +47,54 @@ function LoginForm({ loginUser }) {
 
   return (
     <div className="LoginForm">
-      <h2>Log in</h2>
-      {error &&
-        <p className="LoginForm-error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="LoginForm-username">Username</label>
-        <input
-          required
-          id="LoginForm-username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-        /> <br />
-        <label htmlFor="LoginForm-password">Password</label>
-        <input
-          required
-          id="LoginForm-password"
-          name="password"
-          value={formData.password}
-          type="password"
-          onChange={handleChange}
-        /> <br />
-        <button>Submit</button>
-      </form>
+      <Card className="p-4 m-4">
+        <CardTitle className="pb-3" tag={"h2"}>Log in</CardTitle>
+        {error && <Alert className="LoginForm-error" color="danger">{error}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <FormGroup row>
+            <Label
+              style={{maxWidth: "110px"}}
+              className="px-3"
+              for="LoginForm-username"
+              sm={2}
+            >
+              Username
+            </Label>
+            <Col sm={8}>
+              <Input
+                className="px-3"
+                required
+                id="LoginForm-username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label 
+              for="LoginForm-password"
+              style={{maxWidth: "110px"}}
+              className="px-3"
+              sm={2}
+            >
+              Password
+            </Label>
+            <Col sm={8}>
+              <Input
+                className="px-3"
+                required
+                id="LoginForm-password"
+                name="password"
+                value={formData.password}
+                type="password"
+                onChange={handleChange}
+              />
+            </Col>
+          </FormGroup>
+          <Button color="primary">Submit</Button>
+        </Form>
+      </Card>
     </div>
   );
 }

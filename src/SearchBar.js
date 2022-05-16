@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./SearchBar.css";
+// import "./SearchBar.css";
+import { Form, FormGroup, Input, Button, Row, Col } from 'reactstrap';
 
 /** SearchBar, form that is used for searching for a term
  * 
@@ -30,17 +31,25 @@ function SearchBar({ performSearch }) {
   }
 
   return (
-    <div className="SearchBar">
-      <form onSubmit={handleSubmit}>
-        <input
-          name="search"
-          value={formData.search}
-          placeholder="Enter search term.."
-          onChange={handleChange}
-        />
-        <button>Submit</button>
-      </form>
-    </div>
+    <Form className="SearchBar" onSubmit={handleSubmit}>
+      <Row>
+        <Col md={6}>
+          <FormGroup className="pt-4 ps-4 pe-md-0 pe-sm-4">
+            <Input
+              name="search"
+              value={formData.search}
+              placeholder="Enter search term.."
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
+        <Col md={6}>
+          <FormGroup className="pt-md-4 ps-md-0 ps-sm-4">
+            <Button color="primary">Submit</Button>
+          </FormGroup>
+        </Col>
+      </Row>
+    </Form>
   );
 }
 

@@ -1,6 +1,7 @@
-.Companies {
-    display: flex;
-    flex-direction: column;
-    margin-left: 15vw;
-    margin-right: 15vw;
+.Companies .card {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.Companies .card:hover {
+  box-shadow: .125rem .25rem .75rem rgba(0, 0, 0, .5);
 }

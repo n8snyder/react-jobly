@@ -38,15 +38,12 @@ function Jobs() {
   return (
     <div className="Jobs">
       <SearchBar performSearch={fetchJobs} />
-      <ul>
+      <ul className="px-4 pb-4">
         {jobs.length === 0 && <h2>Sorry... No jobs found</h2>}
         {jobs.map(job => {
           return <li key={job.id}><Job job={job} /></li>
         })}
-
       </ul>
-
-
     </div>
   );
 }
