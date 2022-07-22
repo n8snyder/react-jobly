@@ -4,6 +4,7 @@ import Company from "./Company"
 import SearchBar from "./SearchBar";
 import "./Companies.css"
 import UserContext from "./userContext";
+import Loading from "./Loading";
 
 /** Companies, list of companies with search bar
  * 
@@ -30,7 +31,7 @@ function Companies() {
   }, [user]);
 
   if (companies === null) {
-    return <p className="Companies">Loading...</p>
+    return <div className="Companies"><Loading /></div>
   }
 
   return (

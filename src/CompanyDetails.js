@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import JoblyApi from "./api";
 import Job from "./Job";
 import "./CompanyDetails.css"
+import Loading from "./Loading";
 
 
 /** CompanyDetails, details about a company and list of their jobs
@@ -28,7 +29,7 @@ function CompanyDetails() {
   }, [handle]);
 
   if (!company) {
-    return <p className="CompanyDetails">Loading...</p>
+    return <div className="CompanyDetails"><Loading /></div>
   }
 
   return (

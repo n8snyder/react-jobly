@@ -3,6 +3,7 @@ import JoblyApi from "./api";
 import SearchBar from "./SearchBar";
 import Job from "./Job";
 import UserContext from "./userContext";
+import Loading from "./Loading";
 
 /** Jobs, list of jobs with search bar
  * 
@@ -32,7 +33,7 @@ function Jobs() {
   }
 
   if (jobs === null) {
-    return <p className="Jobs">Loading...</p>
+    return <div className="Jobs"><Loading /></div>
   }
 
   return (

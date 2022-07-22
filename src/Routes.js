@@ -20,7 +20,7 @@ function Routes({ logIn, signUp, updateUser }) {
   return (
     <Switch>
       <Route exact path="/" >
-        <Jobly />
+        <Jobly loginUser={logIn} />
       </Route>
       <LoggedOutRoute exact path="/signup" >
         <SignUpForm signUpUser={signUp} />
